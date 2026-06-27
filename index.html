@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl" class="h-full bg-slate-950 text-slate-100 selection:bg-emerald-500 selection:text-slate-950">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تۆماری داواکارییەکان | Vitalix Sports Medicine</title>
+    
+    <!-- Meta tags for SEO & Theme -->
+    <meta name="description" content="تۆماری داواکاری و کڕینی بەرهەمە پێشکەوتووەکانی کۆمپانیای ڤایتالێکس بۆ پزیشکی وەرزشی و نوێبوونەوەی ماسولکەکان.">
+    <meta name="theme-color" content="#020617">
+
+    <!-- Google Fonts: Readex Pro (Kurdish/Arabic script support) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            black: '#020617',
+                            dark: '#0f172a',
+                            neon: '#10b981', // Emerald green
+                            lightneon: '#34d399',
+                            cyan: '#06b6d4',  // Cyan
+                            pink: '#ec4899',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Readex Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-glow': '0 0 15px rgba(16, 185, 129, 0.25)',
+                        'cyan-glow': '0 0 15px rgba(6, 182, 212, 0.25)',
+                        'cyber-card': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for specialized visuals, grids, and animations -->
+    <style>
+        body {
+            font-family: 'Readex Pro', sans-serif;
+            background-color: #020617;
+            overflow-x: hidden;
+        }
+
+        /* High-tech grid overlay background */
+        .grid-overlay {
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Scanline effect for cyber theme */
+        .scanlines {
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg, 
+                rgba(255, 0, 0, 0.03), 
+                rgba(0, 255, 0, 0.01), 
+                rgba(0, 0, 255, 0.03)
+            );
+            background-size: 100% 4px, 6px 100%;
+        }
+
+        /* Floating background blobs */
+        @keyframes blob-bounce-1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        @keyframes blob-bounce-2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.15); }
+        }
+        @keyframes blob-bounce-3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            70% { transform: translate(40px, 30px) scale(0.95); }
+        }
+
+        .animate-blob-1 {
+            animation: blob-bounce-1 15s infinite ease-in-out alternate;
+        }
+        .animate-blob-2 {
+            animation: blob-bounce-2 18s infinite ease-in-out alternate;
+        }
+        .animate-blob-3 {
+            animation: blob-bounce-3 12s infinite ease-in-out alternate;
+        }
+
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+
+        /* Glassmorphism class */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-panel-neon {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+        }
+
+        /* Animated border for key modules */
+        .cyber-border-glow {
+            position: relative;
+        }
+        .cyber-border-glow::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), transparent 50%, rgba(6, 182, 212, 0.4));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* 3D tilt effect and interactive shadow on hover */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(16, 185, 129, 0.35);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.1), 0 0 20px rgba(6, 182, 212, 0.05);
+        }
+
+        /* Pulsing dot for live status */
+        .pulse-dot {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        @keyframes pulse {
+            to { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #10b981;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(-360deg); }
+        }
+
+        /* Custom invoice barcode styling */
+        .barcode-strip {
+            background: repeating-linear-gradient(
+                90deg,
+                #0f172a,
+                #0f172a 2px,
+                #f8fafc 2px,
+                #f8fafc 4px,
+                #0f172a 4px,
+                #0f172a 8px,
+                #f8fafc 8px,
+                #f8fafc 10px
+            );
+        }
+    </style>
+</head>
+<body class="min-h-screen relative flex flex-col justify-between overflow-x-hidden">
+
+    <!-- 1. Ambient Background Atmosphere -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <!-- Grid overlay -->
+        <div class="absolute inset-0 grid-overlay z-10 opacity-70"></div>
+        <!-- Cyber scanlines -->
+        <div class="absolute inset-0 scanlines z-20 opacity-30"></div>
+        
+        <!-- Glowing Ambient Blobs -->
+        <div class="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-emerald-500/10 blur-[120px] animate-blob-1"></div>
+        <div class="absolute bottom-1/3 left-1/4 w-[450px] h-[450px] rounded-full bg-cyan-500/10 blur-[130px] animate-blob-2"></div>
+        <div class="absolute top-2/3 right-1/3 w-80 h-80 rounded-full bg-pink-500/5 blur-[100px] animate-blob-3"></div>
+    </div>
+
+    <!-- 2. Main Dashboard Layout -->
+    <div class="relative z-30 flex flex-col min-h-screen">
+        
+        <!-- HEADER -->
+        <header class="w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-emerald-500 to-cyan-400 flex items-center justify-center shadow-neon-glow">
+                        <i data-lucide="activity" class="w-6 h-6 text-slate-950 stroke-[2.5]"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold tracking-wider bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent">
+                            VITALIX
+                        </h1>
+                        <span class="text-[10px] text-slate-400 block -mt-1 font-light tracking-widest uppercase">SPORTS MEDICINE</span>
+                    </div>
+                </div>
+
+                <!-- Navigation (Centered, Hidden on mobile) -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                    <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 text-emerald-400">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                        داشبۆردی سەرەکی
+                    </a>
+                    <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+                        <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                        تاقیگەی توێژینەوە
+                    </a>
+                    <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        دڵنیایی جۆری
+                    </a>
+                    <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+                        <i data-lucide="help-circle" class="w-4 h-4"></i>
+                        پەیوەندی
+                    </a>
+                </nav>
+
+                <!-- Controls & Cart indicator -->
+                <div class="flex items-center gap-4">
+                    <!-- Live Lab Status -->
+                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs text-slate-300">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
+                        تاقیگە: چالاک
+                    </div>
+
+                    <!-- Sound FX Toggle -->
+                    <button id="soundToggleBtn" onclick="toggleSound()" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 transition-colors" title="دەنگ">
+                        <i data-lucide="volume-2" id="soundIcon" class="w-5 h-5"></i>
+                    </button>
+
+                    <!-- Cart Indicator (Mobile visible) -->
+                    <button onclick="scrollToCart()" class="relative p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/30 transition-all duration-300">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-emerald-500 text-slate-950 text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center opacity-0 scale-50 transition-all duration-300 shadow-neon-glow">
+                            0
+                        </span>
+                    </button>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
+            
+            <!-- A. Left Column: Checkout & Cart (Sidebar) - Order Sheet -->
+            <section class="w-full lg:w-[380px] shrink-0 order-2 lg:order-1 flex flex-col gap-6" id="orderSidebar">
+                
+                <!-- CART CONTENT CARD -->
+                <div class="glass-panel-neon rounded-2xl p-6 shadow-cyber-card cyber-border-glow flex flex-col gap-5 sticky top-28">
+                    
+                    <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="clipboard-list" class="w-5 h-5 text-emerald-400"></i>
+                            <h2 class="font-bold text-lg text-emerald-400">پسوولەی داواکاری</h2>
+                        </div>
+                        <span id="cartItemLabel" class="text-xs text-slate-400 bg-slate-900 px-2.5 py-1 rounded-full border border-slate-800">
+                            0 بەرهەم
+                        </span>
+                    </div>
+
+                    <!-- Cart Items List (Dynamic) -->
+                    <div id="cartItemsList" class="flex flex-col gap-4 max-h-[220px] overflow-y-auto pr-1">
+                        <!-- EMPTY STATE -->
+                        <div id="emptyCartState" class="flex flex-col items-center justify-center py-8 text-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500">
+                                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                            </div>
+                            <p class="text-sm text-slate-400 max-w-[200px] leading-relaxed">
+                                سەبەتەکەت خاڵییە! بەرهەمێک هەڵبژێرە بۆ دەستپێکردنی داواکارییەکە.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ORDER CALCULATIONS -->
+                    <div class="border-t border-slate-800/80 pt-4 flex flex-col gap-2.5 text-sm">
+                        <div class="flex justify-between text-slate-400">
+                            <span>کۆی گشتی بەرهەمەکان</span>
+                            <span id="calcSubtotal" class="font-medium text-slate-200">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span class="flex items-center gap-1">
+                                باجی پزیشکی (٥٪)
+                                <i data-lucide="info" class="w-3.5 h-3.5 cursor-help text-slate-500" title="باجی فیدراڵی تاقیگەی وەرزشی"></i>
+                            </span>
+                            <span id="calcTax" class="font-medium text-slate-200">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span>تێچووی گەیاندن</span>
+                            <span id="calcShipping" class="font-medium text-slate-200">$0.00</span>
+                        </div>
+                        
+                        <div class="border-t border-slate-800/60 my-1"></div>
+                        
+                        <div class="flex justify-between text-base font-bold text-emerald-400">
+                            <span>کۆی گشتی گشتی</span>
+                            <span id="calcGrandTotal" class="tracking-wide">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- CLIENT CHECKOUT FORM -->
+                    <form id="checkoutForm" onsubmit="handleCheckout(event)" class="flex flex-col gap-4 border-t border-slate-800/80 pt-4">
+                        
+                        <!-- Client Name -->
+                        <div class="flex flex-col gap-1.5">
+                            <label for="clientName" class="text-xs font-medium text-slate-300 flex items-center gap-1.5">
+                                <i data-lucide="user" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                ناوی تەواوی یاریزان / كڕیار
+                            </label>
+                            <input 
+                                type="text" 
+                                id="clientName" 
+                                required
+                                placeholder="نموونە: ئاریان ئەحمەد"
+                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+                            >
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="flex flex-col gap-1.5">
+                            <label for="clientPhone" class="text-xs font-medium text-slate-300 flex items-center gap-1.5">
+                                <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                ژمارەی مۆبایل
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="clientPhone" 
+                                required
+                                placeholder="0750XXXXXXX"
+                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all text-left"
+                                dir="ltr"
+                            >
+                        </div>
+
+                        <!-- City & Address Grid -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex flex-col gap-1.5">
+                                <label for="clientCity" class="text-xs font-medium text-slate-300 flex items-center gap-1.5">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    شار
+                                </label>
+                                <select 
+                                    id="clientCity" 
+                                    class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+                                >
+                                    <option value="هەولێر">هەولێر</option>
+                                    <option value="سلێمانی">سلێمانی</option>
+                                    <option value="دهۆک">دهۆک</option>
+                                    <option value="کەرکووک">کەرکووک</option>
+                                    <option value="هەڵەبجە">هەڵەبجە</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label for="deliveryMethod" class="text-xs font-medium text-slate-300 flex items-center gap-1.5">
+                                    <i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    شێوازی ناردن
+                                </label>
+                                <select 
+                                    id="deliveryMethod" 
+                                    onchange="updateCalculations()"
+                                    class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+                                >
+                                    <option value="standard">ئاسایی ($5)</option>
+                                    <option value="express">خێرا ($15)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Detailed Shipping Address -->
+                        <div class="flex flex-col gap-1.5">
+                            <label for="clientAddress" class="text-xs font-medium text-slate-300 flex items-center gap-1.5">
+                                <i data-lucide="navigation-2" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                ناونیشانی ناردن (گەڕەک / کۆڵان)
+                            </label>
+                            <input 
+                                type="text" 
+                                id="clientAddress" 
+                                required
+                                placeholder="نموونە: گەڕەکی بەختیاری، بەرامبەر پارکی گشتی"
+                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+                            >
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            id="submitOrderBtn"
+                            disabled
+                            class="w-full mt-2 py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 text-slate-950 bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 disabled:from-slate-800 disabled:to-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed transition-all duration-300 shadow-neon-glow"
+                        >
+                            <span id="submitBtnText">جێبەجێکردنی داواکاری</span>
+                            <div id="submitBtnSpinner" class="spinner hidden"></div>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+            <!-- B. Right Column: Hero banner & Product grid -->
+            <section class="flex-grow order-1 lg:order-2 flex flex-col gap-8">
+                
+                <!-- SCIENTIFIC HERO BANNER -->
+                <div class="relative overflow-hidden rounded-3xl border border-slate-800/80 bg-slate-950/60 p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 shadow-cyber-card">
+                    <!-- Radial glow background -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 to-cyan-500/5 pointer-events-none"></div>
+                    
+                    <div class="flex-grow relative z-10 flex flex-col gap-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-400 font-medium w-fit">
+                            <i data-lucide="award" class="w-4 h-4"></i>
+                            زانستی پێشەنگی چاکبوونەوەی وەرزشی
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-extrabold tracking-wide leading-tight text-white">
+                            نوێترین فۆرمۆڵای بایۆلۆجی بۆ <span class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">لوتکەی ئەدای جەستەیی</span>
+                        </h2>
+                        <p class="text-sm text-slate-400 max-w-xl leading-relaxed">
+                            بەرهەمەکانی ڤایتالێکس پەرەیان پێدراوە لە لایەن پسپۆڕانی پزیشکی وەرزشی و نانۆتەکنەلۆجی بۆ خێراکردنی چاکبوونەوەی خانەکانی ماسولکە و بەهێزکردنی کڕکڕاگەی جومگەکان بە شێوازێکی تەندروست.
+                        </p>
+                    </div>
+
+                    <!-- Cyber graphic indicator -->
+                    <div class="w-full md:w-48 shrink-0 flex flex-col gap-2 p-4 rounded-2xl bg-slate-900/60 border border-slate-800 relative z-10 text-xs">
+                        <div class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-400">پلەی گەرمی ساردکەرەوە</span>
+                            <span class="font-mono text-cyan-400 font-bold">-18°C</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-800 py-2">
+                            <span class="text-slate-400">ئاستی پۆتێنسی</span>
+                            <span class="font-mono text-emerald-400 font-bold">99.8%</span>
+                        </div>
+                        <div class="flex justify-between pt-2">
+                            <span class="text-slate-400">بڕوانامەی FDA</span>
+                            <span class="text-emerald-400 font-bold flex items-center gap-1">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                                پەسەندکراو
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORIES / FILTER BAR -->
+                <div class="flex items-center justify-between">
+                    <h3 class="font-bold text-lg text-slate-100 flex items-center gap-2">
+                        <i data-lucide="flame" class="w-5 h-5 text-emerald-400"></i>
+                        کەتەلۆگی بەرهەمە زانستییەکان
+                    </h3>
+                    <div class="flex gap-2">
+                        <button onclick="filterProducts('all')" id="filter-all" class="px-4 py-1.5 text-xs rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 font-medium transition-all">
+                            هەمووی
+                        </button>
+                        <button onclick="filterProducts('recovery')" id="filter-recovery" class="px-4 py-1.5 text-xs rounded-full border border-slate-800 bg-slate-900 text-slate-400 hover:border-slate-700 transition-all">
+                            چاکبوونەوە
+                        </button>
+                        <button onclick="filterProducts('support')" id="filter-support" class="px-4 py-1.5 text-xs rounded-full border border-slate-800 bg-slate-900 text-slate-400 hover:border-slate-700 transition-all">
+                            پاڵپشتی جومگە
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRODUCTS GRID -->
+                <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic Product Cards will be rendered here by JS -->
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="w-full border-t border-slate-900 bg-slate-950 py-6 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 Vitalix Sports Medicine. هەموو مافەکان پارێزراون.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-emerald-400 transition-colors">مەرجەکانی بەکارهێنان</a>
+                    <a href="#" class="hover:text-emerald-400 transition-colors">سیاسەتی پاراستنی زانیارییەکان</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- 3. Dynamic Product Quick View Modal -->
+    <div id="productModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glass-panel rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl relative cyber-border-glow flex flex-col md:flex-row max-h-[90vh] md:max-h-none overflow-y-auto md:overflow-visible">
+            
+            <!-- Left: Graphic/Image (RTL logic) -->
+            <div class="w-full md:w-1/2 relative bg-slate-900/60 min-h-[220px] md:min-h-full">
+                <img id="modalProductImage" src="" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+                <div class="absolute top-4 right-4 bg-emerald-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-full shadow-neon-glow" id="modalProductTag"></div>
+            </div>
+
+            <!-- Right: Details -->
+            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between gap-6">
+                <!-- Close Button -->
+                <button onclick="closeProductModal()" class="absolute top-4 left-4 p-1.5 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/20 transition-all">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+
+                <div class="flex flex-col gap-3">
+                    <div class="flex flex-col">
+                        <span id="modalProductCode" class="text-xs font-mono tracking-widest text-cyan-400"></span>
+                        <h3 id="modalProductName" class="text-xl font-bold text-white mt-1"></h3>
+                    </div>
+                    <p id="modalProductDesc" class="text-sm text-slate-400 leading-relaxed"></p>
+                    
+                    <!-- Specifications -->
+                    <div class="grid grid-cols-2 gap-2 mt-2 bg-slate-950/60 p-3 rounded-xl border border-slate-900">
+                        <div>
+                            <span class="text-[10px] text-slate-500 uppercase block">ڕێژەی مژین</span>
+                            <span id="modalProductAbsorb" class="text-xs font-medium text-slate-300"></span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-500 uppercase block">بەرەوپێشچوون</span>
+                            <span id="modalProductBoost" class="text-xs font-medium text-slate-300"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between border-t border-slate-800/80 pt-4 mt-2">
+                    <div class="flex flex-col">
+                        <span class="text-xs text-slate-400">نرخ</span>
+                        <span id="modalProductPrice" class="text-2xl font-black text-emerald-400 tracking-wide"></span>
+                    </div>
+                    <button id="modalAddToCartBtn" class="py-2.5 px-6 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-neon-glow flex items-center gap-2 transition-all duration-300">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        زیادکردن بۆ سەبەتە
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 4. Invoice Success Modal (Medical Design) -->
+    <div id="invoiceModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md">
+        <div class="bg-white text-slate-950 rounded-2xl w-full max-w-lg p-6 sm:p-8 flex flex-col gap-6 shadow-2xl relative max-h-[95vh] overflow-y-auto">
+            
+            <!-- Success Stamp / Header -->
+            <div class="flex items-start justify-between border-b border-dashed border-slate-300 pb-5">
+                <div class="flex flex-col">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs w-fit mb-2">
+                        <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                        داواکاری سەرکەوتوو بوو
+                    </span>
+                    <h2 class="text-2xl font-black tracking-wide text-slate-900">VITALIX MEDICAL</h2>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">Sport & Cellular Clinical Pharmacy</span>
+                </div>
+                <div class="w-14 h-14 rounded-full border-4 border-dashed border-emerald-500 text-emerald-500 flex items-center justify-center font-black tracking-tighter uppercase text-xs rotate-12 select-none">
+                    APPROVED
+                </div>
+            </div>
+
+            <!-- Client & Delivery info -->
+            <div class="grid grid-cols-2 gap-4 text-xs border-b border-dashed border-slate-300 pb-5">
+                <div class="flex flex-col gap-1">
+                    <span class="text-slate-500 uppercase tracking-wider">کڕیار:</span>
+                    <span id="invClientName" class="font-bold text-slate-900 text-sm"></span>
+                    <span id="invClientPhone" class="font-mono text-slate-600"></span>
+                </div>
+                <div class="flex flex-col gap-1 text-left" dir="ltr">
+                    <span class="text-slate-500 uppercase tracking-wider text-right">ڕێکەوت:</span>
+                    <span id="invDate" class="font-mono font-bold text-slate-900 text-right"></span>
+                    <span id="invId" class="font-mono text-cyan-600 text-right font-semibold"></span>
+                </div>
+                <div class="col-span-2 flex flex-col gap-1">
+                    <span class="text-slate-500 uppercase tracking-wider">شار و ناونیشان:</span>
+                    <span id="invAddress" class="font-medium text-slate-800"></span>
+                </div>
+            </div>
+
+            <!-- Items Purchased -->
+            <div class="flex flex-col gap-2.5 text-xs border-b border-dashed border-slate-300 pb-5">
+                <span class="text-slate-500 uppercase tracking-wider font-bold">بەرهەمەکان</span>
+                <div id="invItemsList" class="flex flex-col gap-2">
+                    <!-- Dynamic Items -->
+                </div>
+            </div>
+
+            <!-- Totals -->
+            <div class="flex flex-col gap-1.5 text-xs">
+                <div class="flex justify-between text-slate-600">
+                    <span>کۆی گشتی بەرهەمەکان</span>
+                    <span id="invSubtotal" class="font-mono"></span>
+                </div>
+                <div class="flex justify-between text-slate-600">
+                    <span>باجی پزیشکی (٥٪)</span>
+                    <span id="invTax" class="font-mono"></span>
+                </div>
+                <div class="flex justify-between text-slate-600">
+                    <span>تێچووی گەیاندن</span>
+                    <span id="invShipping" class="font-mono"></span>
+                </div>
+                <div class="flex justify-between text-sm font-bold text-slate-900 pt-2 border-t border-slate-200 mt-1">
+                    <span>کۆی کۆتایی</span>
+                    <span id="invGrandTotal" class="font-mono text-base text-emerald-600"></span>
+                </div>
+            </div>
+
+            <!-- Barcode & Disclaimer -->
+            <div class="flex flex-col items-center justify-center gap-3 pt-2 text-center">
+                <div class="w-full h-10 barcode-strip rounded opacity-80"></div>
+                <span class="text-[9px] font-mono text-slate-400">VITX-OP-2026-REG-98X2</span>
+                <p class="text-[10px] text-slate-500 max-w-xs leading-relaxed">
+                    تێبینی: فۆرمۆڵاکانی تاقیگەی ڤایتالێکس تایبەتن بە وەرزشوانان. بەپێی ڕێنماییەکان بەکاری بهێنە.
+                </p>
+            </div>
+
+            <!-- Controls (Actions) -->
+            <div class="flex gap-3 mt-2 no-print">
+                <button onclick="printInvoice()" class="flex-1 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-sm flex items-center justify-center gap-1.5 transition-all">
+                    <i data-lucide="printer" class="w-4 h-4"></i>
+                    چاپکردنی پسوولە
+                </button>
+                <button onclick="closeInvoiceModal()" class="flex-1 py-2.5 rounded-xl bg-slate-950 text-white hover:bg-slate-900 font-bold text-sm flex items-center justify-center gap-1.5 transition-all shadow-md">
+                    تەواوکردن
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 5. Interactive JavaScript Controller -->
+    <script>
+        // Web Audio Synth for premium interactions
+        let audioCtx = null;
+        let soundEnabled = true;
+
+        function playSynthSound(freq, type, duration, volume = 0.1) {
+            if (!soundEnabled) return;
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                osc.type = type; // 'sine', 'square', 'sawtooth', 'triangle'
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                
+                gainNode.gain.setValueAtTime(volume, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+                
+                osc.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                console.log("Audio contexts blocked or not supported yet.");
+            }
+        }
+
+        function triggerUiSound(action) {
+            if (action === 'click') {
+                playSynthSound(440, 'triangle', 0.1, 0.08); // high tick
+            } else if (action === 'success') {
+                // Happy chord
+                playSynthSound(523.25, 'sine', 0.25, 0.1); // C5
+                setTimeout(() => playSynthSound(659.25, 'sine', 0.25, 0.1), 80); // E5
+                setTimeout(() => playSynthSound(783.99, 'sine', 0.35, 0.1), 160); // G5
+            } else if (action === 'add-to-cart') {
+                playSynthSound(330, 'sine', 0.15, 0.08); // E4
+                setTimeout(() => playSynthSound(587.33, 'sine', 0.2, 0.08), 80); // D5
+            } else if (action === 'remove') {
+                playSynthSound(220, 'sine', 0.15, 0.08); // A3
+                setTimeout(() => playSynthSound(165, 'sine', 0.2, 0.08), 85); // E3
+            }
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const soundIcon = document.getElementById('soundIcon');
+            if (soundEnabled) {
+                soundIcon.setAttribute('data-lucide', 'volume-2');
+                playSynthSound(440, 'sine', 0.1, 0.05);
+            } else {
+                soundIcon.setAttribute('data-lucide', 'volume-x');
+            }
+            lucide.createIcons();
+        }
+
+        // Product database
+        const products = [
+            {
+                id: 1,
+                code: 'VTX-HYDRA-01',
+                name: 'سیرۆمی هایدرەیشنی خانەیی HYDRA-CELL',
+                category: 'recovery',
+                price: 45.00,
+                rating: 4.9,
+                desc: 'سیرۆمێکی پێشکەوتووی پڕ لە ئەلیکترۆلایت بۆ چاککردنەوەی خێرای خانەکان و ڕێگری لە ماندووبوونی لەناکاو.',
+                tag: 'پڕفرۆشترین',
+                image: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=600&q=80',
+                specs: {
+                    absorb: 'خێرا (١٠ خولەک)',
+                    boost: '+٤٥٪ توانای بەرگەگرتن'
+                }
+            },
+            {
+                id: 2,
+                code: 'VTX-REGEN-02',
+                name: 'کۆمپلێکسی چاککردنەوەی شانەکان CELL-REGEN',
+                category: 'recovery',
+                price: 89.00,
+                rating: 5.0,
+                desc: 'فرمۆڵەیەکی بایۆ-چالاک بۆ خێراکردنی نوێبوونەوەی ماسولکەکان و چاککردنەوەی مایکرۆ-برینەکان لە کاتی ڕاهێنانی زۆر قورسدا.',
+                tag: 'زانستی پێشکەوتوو',
+                image: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=600&q=80',
+                specs: {
+                    absorb: 'کاتی (٢ کاژێر)',
+                    boost: '+٦٠٪ چاکبوونەوەی شانەکان'
+                }
+            },
+            {
+                id: 3,
+                code: 'VTX-SHIELD-03',
+                name: 'پارێزەری جومگەی پێشکەوتوو ARTHRO-SHIELD',
+                category: 'support',
+                price: 65.00,
+                rating: 4.8,
+                desc: 'تێکەڵەیەکی بایۆلۆجی پێشکەوتوو بۆ بەهێزکردنی کڕکڕاگە و کەمکردنەوەی هەوکردنی جومگەکان بەهۆی لۆد و قورسایی بەردەوام.',
+                tag: 'دژە هەوکردن',
+                image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80',
+                specs: {
+                    absorb: 'ناوەند (٣٠ خولەک)',
+                    boost: 'پاراستنی تەواوی جومگەکان'
+                }
+            },
+            {
+                id: 4,
+                code: 'VTX-IMMUN-04',
+                name: 'بەهێزکەری بەرگری لوتکە IMMUNO-SHIELD',
+                category: 'support',
+                price: 55.00,
+                rating: 4.7,
+                desc: 'کۆمپلێکسی دژە ئۆکسێنەر بۆ بەهێزکردنی بەرگری لەش و پاراستنی سیستەمی کۆئەندامی هەناسە لە ژێر گوشاری زۆری وەرزشیدا.',
+                tag: 'بەرگری پۆڵایین',
+                image: 'https://images.unsplash.com/photo-1611077544199-fe85b6b14207?auto=format&fit=crop&w=600&q=80',
+                specs: {
+                    absorb: 'خێرا (١٥ خولەک)',
+                    boost: '+٣٥٪ هێزی بەرگری خانەیی'
+                }
+            }
+        ];
+
+        let cart = [];
+        let currentFilter = 'all';
+
+        // Render product items to grid
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            const filtered = products.filter(p => currentFilter === 'all' || p.category === currentFilter);
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between h-full';
+                
+                // Add animated slide-up classes
+                card.innerHTML = `
+                    <div class="relative overflow-hidden group h-48">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        
+                        <!-- High-tech tags -->
+                        <span class="absolute top-3 right-3 text-[10px] font-bold tracking-wide text-slate-950 bg-emerald-400 px-2.5 py-1 rounded-md shadow-neon-glow uppercase">
+                            ${product.tag}
+                        </span>
+                        <span class="absolute bottom-3 left-3 text-xs font-mono text-cyan-400 bg-slate-950/80 px-2 py-0.5 rounded border border-cyan-400/20">
+                            ${product.code}
+                        </span>
+                    </div>
+
+                    <div class="p-5 flex flex-col gap-4 flex-grow justify-between">
+                        <div class="flex flex-col gap-1.5">
+                            <div class="flex items-center gap-1 text-amber-400 text-xs">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="font-bold">${product.rating}</span>
+                                <span class="text-slate-500">(تاقیگەیی)</span>
+                            </div>
+                            <h4 class="font-bold text-white text-base hover:text-emerald-400 cursor-pointer transition-colors" onclick="openProductModal(${product.id})">
+                                ${product.name}
+                            </h4>
+                            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                                ${product.desc}
+                            </p>
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-slate-900 pt-4">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-500 uppercase">نرخی یەکە</span>
+                                <span class="text-lg font-black text-emerald-400 tracking-wide">$${product.price.toFixed(2)}</span>
+                            </div>
+                            
+                            <div class="flex gap-2">
+                                <button onclick="openProductModal(${product.id})" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition-colors" title="بینینی تەواو">
+                                    <i data-lucide="eye" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="addToCart(${product.id})" class="py-1.5 px-4 rounded-lg font-bold text-xs text-slate-950 bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 transition-all duration-300 shadow-neon-glow flex items-center gap-1">
+                                    <i data-lucide="plus" class="w-3.5 h-3.5 stroke-[3]"></i>
+                                    زیادکردن
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        function filterProducts(category) {
+            triggerUiSound('click');
+            currentFilter = category;
+            
+            // Toggle active classes on filter buttons
+            ['all', 'recovery', 'support'].forEach(cat => {
+                const btn = document.getElementById(`filter-${cat}`);
+                if (cat === category) {
+                    btn.className = "px-4 py-1.5 text-xs rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 font-medium transition-all";
+                } else {
+                    btn.className = "px-4 py-1.5 text-xs rounded-full border border-slate-800 bg-slate-900 text-slate-400 hover:border-slate-700 transition-all";
+                }
+            });
+
+            renderProducts();
+        }
+
+        // Add product to cart
+        function addToCart(productId) {
+            triggerUiSound('add-to-cart');
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.product.id === productId);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    product: product,
+                    quantity: 1
+                });
+            }
+
+            updateCartUi();
+            highlightCartBadge();
+        }
+
+        // Change quantity in cart
+        function updateQuantity(productId, delta) {
+            const existingIndex = cart.findIndex(item => item.product.id === productId);
+            if (existingIndex === -1) return;
+
+            if (delta < 0) {
+                triggerUiSound('remove');
+            } else {
+                triggerUiSound('click');
+            }
+
+            cart[existingIndex].quantity += delta;
+
+            if (cart[existingIndex].quantity <= 0) {
+                cart.splice(existingIndex, 1);
+            }
+
+            updateCartUi();
+        }
+
+        // Update overall cart information
+        function updateCartUi() {
+            const cartItemsList = document.getElementById('cartItemsList');
+            const cartCountBadge = document.getElementById('cartCountBadge');
+            const cartItemLabel = document.getElementById('cartItemLabel');
+            const submitOrderBtn = document.getElementById('submitOrderBtn');
+
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = `
+                    <div id="emptyCartState" class="flex flex-col items-center justify-center py-8 text-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500">
+                            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-sm text-slate-400 max-w-[200px] leading-relaxed">
+                            سەبەتەکەت خاڵییە! بەرهەمێک هەڵبژێرە بۆ دەستپێکردنی داواکارییەکە.
+                        </p>
+                    </div>
+                `;
+                cartCountBadge.classList.add('opacity-0', 'scale-50');
+                cartItemLabel.innerText = "0 بەرهەم";
+                submitOrderBtn.disabled = true;
+            } else {
+                cartItemsList.innerHTML = '';
+                let totalItems = 0;
+
+                cart.forEach(item => {
+                    totalItems += item.quantity;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800/80';
+                    
+                    itemDiv.innerHTML = `
+                        <div class="flex items-center gap-3 flex-grow">
+                            <img src="${item.product.image}" alt="${item.product.name}" class="w-10 h-10 object-cover rounded-lg border border-slate-800">
+                            <div class="flex flex-col gap-0.5">
+                                <h5 class="text-xs font-bold text-white line-clamp-1 max-w-[150px]">${item.product.name}</h5>
+                                <span class="text-[10px] text-emerald-400 font-mono">$${(item.product.price * item.quantity).toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-slate-950 px-2 py-1 rounded-lg border border-slate-800">
+                            <button type="button" onclick="updateQuantity(${item.product.id}, -1)" class="text-slate-400 hover:text-emerald-400 transition-colors">
+                                <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+                            </button>
+                            <span class="text-xs font-bold text-white font-mono min-w-[12px] text-center">${item.quantity}</span>
+                            <button type="button" onclick="updateQuantity(${item.product.id}, 1)" class="text-slate-400 hover:text-emerald-400 transition-colors">
+                                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItemsList.appendChild(itemDiv);
+                });
+
+                cartCountBadge.innerText = totalItems;
+                cartCountBadge.classList.remove('opacity-0', 'scale-50');
+                cartItemLabel.innerText = `${totalItems} بەرهەم`;
+                submitOrderBtn.disabled = false;
+            }
+
+            lucide.createIcons();
+            updateCalculations();
+        }
+
+        // Highlight badge animation on change
+        function highlightCartBadge() {
+            const badge = document.getElementById('cartCountBadge');
+            badge.classList.add('scale-125', 'bg-cyan-400');
+            setTimeout(() => {
+                badge.classList.remove('scale-125', 'bg-cyan-400');
+            }, 300);
+        }
+
+        // Calculate and refresh order pricing
+        function updateCalculations() {
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.product.price * item.quantity;
+            });
+
+            const tax = subtotal * 0.05;
+            
+            // Shipping configurations
+            const deliveryMethod = document.getElementById('deliveryMethod').value;
+            let shipping = 0.00;
+            if (subtotal > 0) {
+                if (subtotal > 200.00) {
+                    shipping = 0.00; // Free delivery for premiums
+                } else {
+                    shipping = deliveryMethod === 'express' ? 15.00 : 5.00;
+                }
+            }
+
+            const grandTotal = subtotal + tax + shipping;
+
+            // Render numbers
+            document.getElementById('calcSubtotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('calcTax').innerText = `$${tax.toFixed(2)}`;
+            document.getElementById('calcShipping').innerText = shipping === 0.00 ? 'بێبەرامبەر' : `$${shipping.toFixed(2)}`;
+            document.getElementById('calcGrandTotal').innerText = `$${grandTotal.toFixed(2)}`;
+        }
+
+        // Quick View Modal Controllers
+        function openProductModal(productId) {
+            triggerUiSound('click');
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            document.getElementById('modalProductName').innerText = product.name;
+            document.getElementById('modalProductCode').innerText = product.code;
+            document.getElementById('modalProductDesc').innerText = product.desc;
+            document.getElementById('modalProductPrice').innerText = `$${product.price.toFixed(2)}`;
+            document.getElementById('modalProductTag').innerText = product.tag;
+            document.getElementById('modalProductImage').src = product.image;
+            document.getElementById('modalProductAbsorb').innerText = product.specs.absorb;
+            document.getElementById('modalProductBoost').innerText = product.specs.boost;
+
+            // Setup add-to-cart event handler for modal button
+            const btn = document.getElementById('modalAddToCartBtn');
+            btn.onclick = function() {
+                addToCart(product.id);
+                closeProductModal();
+            };
+
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Scale animation
+            modal.firstElementChild.classList.add('scale-100', 'opacity-100');
+        }
+
+        // Close Quick View modal
+        function closeProductModal() {
+            triggerUiSound('click');
+            const modal = document.getElementById('productModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Checkout & Invoice Generation
+        function handleCheckout(event) {
+            event.preventDefault();
+            triggerUiSound('click');
+
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const city = document.getElementById('clientCity').value;
+            const address = document.getElementById('clientAddress').value.trim();
+
+            if (!name || !phone || !address) {
+                alert("تکایە هەموو خانەکان بە دروستی پڕ بکەرەوە.");
+                return;
+            }
+
+            // Spinner Loading Animation
+            const submitBtn = document.getElementById('submitOrderBtn');
+            const submitBtnText = document.getElementById('submitBtnText');
+            const submitBtnSpinner = document.getElementById('submitBtnSpinner');
+
+            submitBtn.disabled = true;
+            submitBtnText.innerText = "جێبەجێکردن...";
+            submitBtnSpinner.classList.remove('hidden');
+
+            setTimeout(() => {
+                // Done loading
+                submitBtnSpinner.classList.add('hidden');
+                submitBtnText.innerText = "جێبەجێکردنی داواکاری";
+                submitBtn.disabled = false;
+
+                triggerUiSound('success');
+                showInvoice(name, phone, city, address);
+            }, 1800);
+        }
+
+        function showInvoice(name, phone, city, address) {
+            // Fill Customer Info
+            document.getElementById('invClientName').innerText = name;
+            document.getElementById('invClientPhone').innerText = phone;
+            document.getElementById('invAddress').innerText = `${city}، ${address}`;
+            
+            // Random invoice generator ID
+            const date = new Date();
+            const invoiceId = `VTX-${date.getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+            document.getElementById('invId').innerText = invoiceId;
+            
+            const localDate = date.toLocaleDateString('ku-IQ', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('invDate').innerText = localDate;
+
+            // Calculate pricing
+            let subtotal = 0;
+            const invItemsList = document.getElementById('invItemsList');
+            invItemsList.innerHTML = '';
+
+            cart.forEach(item => {
+                subtotal += item.product.price * item.quantity;
+
+                const itemRow = document.createElement('div');
+                itemRow.className = 'flex justify-between text-slate-800';
+                itemRow.innerHTML = `
+                    <span>${item.product.name} (x${item.quantity})</span>
+                    <span class="font-mono">$${(item.product.price * item.quantity).toFixed(2)}</span>
+                `;
+                invItemsList.appendChild(itemRow);
+            });
+
+            const tax = subtotal * 0.05;
+            const deliveryMethod = document.getElementById('deliveryMethod').value;
+            let shipping = 0;
+            if (subtotal > 0) {
+                if (subtotal > 200.00) {
+                    shipping = 0.00;
+                } else {
+                    shipping = deliveryMethod === 'express' ? 15.00 : 5.00;
+                }
+            }
+            const grandTotal = subtotal + tax + shipping;
+
+            document.getElementById('invSubtotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('invTax').innerText = `$${tax.toFixed(2)}`;
+            document.getElementById('invShipping').innerText = shipping === 0.00 ? 'بێبەرامبەر' : `$${shipping.toFixed(2)}`;
+            document.getElementById('invGrandTotal').innerText = `$${grandTotal.toFixed(2)}`;
+
+            // Reveal Invoice Modal
+            const invoiceModal = document.getElementById('invoiceModal');
+            invoiceModal.classList.remove('hidden');
+            invoiceModal.classList.add('flex');
+        }
+
+        function closeInvoiceModal() {
+            triggerUiSound('click');
+            // Empty the cart
+            cart = [];
+            updateCartUi();
+            
+            // Clear checkout form
+            document.getElementById('checkoutForm').reset();
+
+            const invoiceModal = document.getElementById('invoiceModal');
+            invoiceModal.classList.add('hidden');
+            invoiceModal.classList.remove('flex');
+        }
+
+        function printInvoice() {
+            triggerUiSound('click');
+            window.print();
+        }
+
+        // Scroll helper on mobile
+        function scrollToCart() {
+            triggerUiSound('click');
+            const target = document.getElementById('orderSidebar');
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initial setup
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartUi();
+        });
+    </script>
+    
+    <!-- Add print styling support to omit dashboard backgrounds and controls during printing -->
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #invoiceModal, #invoiceModal * {
+                visibility: visible;
+            }
+            #invoiceModal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+
+</body>
+</html>
